@@ -1,15 +1,11 @@
 import React from 'react';
+import styles from './Button.module.css';
 
 const Button = ({children}) => {
 
-    const style = {
-        textDecoration: 'none',
-        color: '#000'
-    }
-
     return(
-        <button>
-            <a style={style} href="#">{children}</a>
+        <button className={styles.button}>
+            {children}
         </button>
     );
 };

@@ -1,6 +1,5 @@
 .footer {
-    margin: 60px auto;
-    padding: 0;
+    margin: 15px auto;
     width: 945px;
 
     display: flex;
@@ -10,7 +9,6 @@
 
 .socialList {
     margin: 0px;
-    padding: 0px;
 
     width: 260px;
     display: flex;
@@ -32,8 +30,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 70px;
-    height: 70px;
+    width:50px;
+    height: 50px;
 }
 
 .socialButton:hover,
