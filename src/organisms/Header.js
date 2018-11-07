@@ -2,9 +2,7 @@ import React from 'react';
 import styles from './Header.module.css';
 import logo from './logo.jpg';
 
-const Header = () => {
-
-    return (
+const Header = () => (
 
     <header className = {styles.header}>
         <div className= {styles.mainNavigation}>
@@ -20,8 +18,6 @@ const Header = () => {
         </div>
     </header>
 
-    )
-
-};
+    );
 
 export default Header;

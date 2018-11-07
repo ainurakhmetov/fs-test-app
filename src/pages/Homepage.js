@@ -1,17 +1,18 @@
 import React from 'react';
 import styles from './Homepage.module.css';
 import Form from '../organisms/Form.js'
+import Template from '../templates/Template.js';
 
-const Homepage = () => {
+const Homepage = () => (
 
-
-    return(
         <main className={styles.main}>
-         <Form></Form>
+
+            <Template>
+                <Form></Form>
+            </Template>
 
         </main>
-    )
 
-};
+    );
 
 export default Homepage;

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import styles from '../malecules/News.module.css'
-import News from '../malecules/News.js'
+import styles from '../molecules/News.module.css'
+import News from '../molecules/News.js'
 
 
 
@@ -16,7 +16,7 @@ class Form extends Component {
 
     render() {
 
-        let newss = null
+        let newss = null;
 
         newss = this.state.news.map((news, index) => {
             return (
@@ -26,7 +26,7 @@ class Form extends Component {
                     text={news.text}
                 />
             )
-        })
+        });
         return (
             <div>
                 {newss}
