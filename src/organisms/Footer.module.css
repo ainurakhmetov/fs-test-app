@@ -1,10 +1,11 @@
 .footer {
     margin: 15px auto;
-    width: 945px;
+    min-width: 70vw;
 
     display: flex;
     justify-content: space-between;
     padding: 10px 139px;
+    background-color: #fff ;
 }
 
 .socialList {
