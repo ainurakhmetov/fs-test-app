@@ -1,6 +1,6 @@
 import React from 'react';
-import Header from '../organisms/Header.js';
-import Footer from '../organisms/Footer.js';
+import Header from '../organisms/header/Header.js';
+import Footer from '../organisms/footer/Footer.js';
 
 const Template = ({children}) => (
 

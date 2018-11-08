@@ -1,17 +1,15 @@
 import React from 'react';
 import styles from './Homepage.module.css';
-import Form from '../organisms/Form.js'
+import NewsForm from '../organisms/NewsForm.js'
 import Template from '../templates/Template.js';
 
 const Homepage = () => (
 
-        <main className={styles.main}>
-
             <Template>
-                <Form></Form>
+                <main className={styles.main}>
+                    <NewsForm></NewsForm>
+                </main>
             </Template>
-
-        </main>
 
     );
 

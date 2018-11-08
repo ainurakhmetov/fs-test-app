@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import styles from '../molecules/News.module.css'
-import News from '../molecules/News.js'
+import styles from '../molecules/news/News.module.css'
+import News from '../molecules/news/News.js'
 
 
 
-class Form extends Component {
+class NewsForm extends Component {
 
     state = {
         news: [
@@ -35,4 +35,4 @@ class Form extends Component {
     };
 }
 
-export default Form;
+export default NewsForm;
