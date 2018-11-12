@@ -37,3 +37,20 @@
     width: 50%;
     position: relative;
 }
+
+.button {
+    font-weight: 700;
+    color: #ffffff;
+    background-color: #7e7e7e;
+    text-transform: uppercase;
+    width: 200px;
+    padding: 10px ;
+    font-size: 14px;
+    align-items: right;
+}
+
+.button:hover,
+.button:focus,
+.button:active{
+    color: #fdd700;
+}

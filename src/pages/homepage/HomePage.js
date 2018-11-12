@@ -1,9 +1,9 @@
 import React from 'react';
-import styles from './Homepage.module.css';
-import NewsForm from '../organisms/NewsForm.js'
-import Template from '../templates/Template.js';
+import styles from './HomePage.module.css';
+import NewsForm from '../../organisms/NewsForm.js'
+import Template from '../../templates/Template.js';
 
-const Homepage = () => (
+const HomePage = () => (
 
             <Template>
                 <main className={styles.main}>
@@ -13,4 +13,4 @@ const Homepage = () => (
 
     );
 
-export default Homepage;
+export default HomePage;

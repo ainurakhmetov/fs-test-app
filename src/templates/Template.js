@@ -5,9 +5,9 @@ import Footer from '../organisms/footer/Footer.js';
 const Template = ({children}) => (
 
     <div>
-        <Header></Header>
+        <Header/>
         {children}
-        <Footer></Footer>
+        <Footer/>
     </div>
 
 );

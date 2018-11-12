@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import styles from '../molecules/news/News.module.css'
 import News from '../molecules/news/News.js'
 
-
-
 class NewsForm extends Component {
 
     state = {
@@ -16,9 +14,9 @@ class NewsForm extends Component {
 
     render() {
 
-        let newss = null;
+        let newsArr = null;
 
-        newss = this.state.news.map((news, index) => {
+        newsArr = this.state.news.map((news, index) => {
             return (
                 <News className={styles.form}
                     key={index}
@@ -29,7 +27,7 @@ class NewsForm extends Component {
         });
         return (
             <div>
-                {newss}
+                {newsArr}
             </div>
         )
     };

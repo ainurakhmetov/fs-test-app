@@ -1,10 +1,11 @@
 import React from 'react';
-import styles from './Button.module.css';
 
-const Button = ({children}) => (
-    <button className={styles.button}>
-        {children}
+const Button = (props) => (
+
+    <button className={props.styled}>
+        {props.children}
     </button>
+
 );
 
 export default Button;
