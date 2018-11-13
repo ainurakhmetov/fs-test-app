@@ -1,7 +1,8 @@
 .main {
+    font-family: Roboto;
     width: 100vw;
     height: 100vh;
-    background-color: gold;
+    background-color: white;
     color: #fffaf0;
     font-size: 72px;
 }
@@ -12,9 +13,8 @@
     text-align: center;
     text-transform: uppercase;
     font-weight: 500;
+    color: gold;
 }
-
-
 
 .button {
     font-weight: 700;

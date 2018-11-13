@@ -1,15 +1,15 @@
 import React from 'react';
 import styles from './HomePage.module.css';
-import NewsForm from '../../organisms/NewsForm.js'
-import Template from '../../templates/Template.js';
+import NewsForm from '../../organisms/NewsForm.jsx'
+import MainTemplate from '../../templates/MainTemplate.jsx';
 
 const HomePage = () => (
 
-            <Template>
+            <MainTemplate>
                 <main className={styles.main}>
                     <NewsForm></NewsForm>
                 </main>
-            </Template>
+            </MainTemplate>
 
     );
 

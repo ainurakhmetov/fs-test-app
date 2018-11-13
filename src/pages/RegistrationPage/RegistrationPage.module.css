@@ -1,6 +1,17 @@
+.main {
+    background-color: #ffffff;
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    color: #000000;
+    padding: 15px;
+}
 
 .form {
-    padding: 5px 10px;
+    padding: 20px 20px;
     background-color: #ffffff;
     min-width: 600px;
     width: 70vw;
@@ -8,34 +19,11 @@
     box-shadow:0 4px 5px rgba(0, 0, 0, .14);
     height: 30em;
     margin: 5px 0 0 0;
-
-    display: flex;
-    justify-content: space-between;
-    align-content: center;
 }
 
 .form:hover {
     border: 1px solid #aaa;
     box-shadow: 0 4px 15px 0 rgba(0, 0, 0, .25);
-}
-
-
-.title {
-    text-align: right;
-    padding: 20px 20px;
-}
-
-.color {
-    background-color: #d0d39a;
-    width: 50%;
-    height: 100%;
-
-}
-
-.textBlock {
-    padding: 20px;
-    width: 50%;
-    position: relative;
 }
 
 .button {
@@ -46,7 +34,7 @@
     width: 200px;
     padding: 10px ;
     font-size: 14px;
-    align-items: right;
+    margin: 100px 42%;
 }
 
 .button:hover,

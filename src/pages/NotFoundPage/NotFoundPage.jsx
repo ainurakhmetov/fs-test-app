@@ -1,7 +1,7 @@
 import React from 'react';
-import styles from './NotFoundPage.module.css'
-import Button from "../../atoms/button/Button";
 import {Link} from 'react-router-dom';
+import styles from './NotFoundPage.module.css'
+import Button from "../../atoms/Button/Button.jsx";
 
 const NotFoundPage = () => (
 

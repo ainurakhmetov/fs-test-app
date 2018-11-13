@@ -1,5 +1,5 @@
 import React from 'react'
-import Button from "../../atoms/button/Button";
+import Button from "../../atoms/Button/Button.jsx";
 import styles from './News.module.css'
 
 const News = (props) => (

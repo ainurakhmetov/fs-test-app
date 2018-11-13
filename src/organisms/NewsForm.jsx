@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import styles from '../molecules/news/News.module.css'
-import News from '../molecules/news/News.js'
+import styles from '../molecules/News/News.module.css'
+import News from '../molecules/News/News.jsx'
 
 class NewsForm extends Component {
 
