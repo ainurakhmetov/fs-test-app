@@ -1,14 +1,14 @@
 import React from 'react';
-import Header from '../organisms/Header/Header.jsx';
-import Footer from '../organisms/Footer/Footer.jsx';
+import Header from '../organisms/Header/Header';
+import Footer from '../organisms/Footer/Footer';
 
-const MainTemplate = ({children}) => (
+const MainTemplate = ({ children }) => (
 
-    <div>
-        <Header/>
-        {children}
-        <Footer/>
-    </div>
+  <div>
+    <Header />
+    {children}
+    <Footer />
+  </div>
 
 );
 
