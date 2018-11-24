@@ -48,7 +48,6 @@ class CharacterPage extends Component {
       <MainTemplate>
         <main className={styles.main}>
           <h1 className={styles.title}>Hero</h1>
-          {console.log(this.state.data)}
           {this.state.loading && 'Loading...'}
           {!this.state.loading && !this.state.error && this.state.data === null && 'Empty'}
           {this.state.error && (
@@ -58,11 +57,14 @@ class CharacterPage extends Component {
             </div>
           )}
           <section className={styles.form}>
-              <h2>{hero.name}</h2>
-              {/*<img src={`${hero.thumbnail.path}/portrait_uncanny.${hero.thumbnail.extension}`} alt={hero.name} />*/}
-              {console.log(hero.thumbnail)}
-              {typeof (hero.description) === 'undefined' && 'Empty'}
-              <p>{hero.description}</p>
+            <div className={styles.left}>
+              <h2 className={styles.heroTitle}>{hero.name}</h2>
+              {(hero.thumbnail) && <img src={`${hero.thumbnail.path}/portrait_incredible.${hero.thumbnail.extension}`} alt={hero.name} />}
+            </div>
+            <div className={styles.right}>
+              {hero.description === '' &&  <p>No description</p>}
+              {hero.description && <p className={styles.description}>{hero.description}</p>}
+            </div>
           </section>
         </main>
       </MainTemplate>

@@ -9,7 +9,9 @@ class CharactersPage extends Component {
     loading: false,
     error: false,
     data: [],
-    page: 1,
+    currentPage: 1,
+    totalPage: 0,
+    currentOffset: 0,
   };
 
   componentDidMount() {
@@ -27,13 +29,14 @@ class CharactersPage extends Component {
         params: {
           apikey: process.env.REACT_APP_MARVEL_API_KEY,
           limit: 20,
-          offset: (this.state.page - 1) * 20,
+          offset: (this.state.currentPage - 1) * 20,
         },
       })
       .then((response) => {
         this.setState(prevState => ({
           loading: false,
           data: [...prevState.data, ...response.data.data.results],
+          totalPage: response.data.data.total,
         }));
       })
       .catch(() => {
@@ -43,29 +46,57 @@ class CharactersPage extends Component {
         });
       });
   };
-
-  handleShowMore = () => {
-    this.setState(prevState => ({
-      page: prevState.page + 1,
-    }), () => {
+  handleNumberClick = (event) => {
+    this.setState({
+      currentPage: Number(event.target.id),
+      data: [],
+      //костыль, нельзя вернутся назад
+      //({pathname:`?page=${this.state.currentPage}`}),
+      //пуш в url номера стр
+    }, () => {
       this.fetch();
     });
   };
 
   render() {
+    const { data, currentPage, totalPage } = this.state;
+    // const indexOfFirstTodo = currentOffset - 20;
+    // const indexOfLastItem = currentOffset + 20;
+    // let currentItems = data.slice(indexOfFirstTodo, indexOfLastItem);
+
+    // Logic for displaying page numbers
+    const pageNumbers = [];
+    for (let i = 1; i <= Math.ceil(totalPage / 20); i++) {
+      pageNumbers.push(i);
+    }
+
+    const renderPageNumbers = pageNumbers.map(number => {
+      return (
+        <li
+          key={number}
+          id={number}
+          onClick={this.handleNumberClick}
+        >
+          {number}
+        </li>
+      );
+    });
     return (
       <MainTemplate>
         <main className={styles.main}>
           <h1 className={styles.title}>Heroes</h1>
           <section className={styles.form}>
-          {this.state.data.map(character => (
-            <Link className={styles.link} to={`/character/${character.id}`}>
-              <div key={character.id}>
-                <h2>{character.name}</h2>
-                <img src={`${character.thumbnail.path}/portrait_fantastic.${character.thumbnail.extension}`} alt={character.name} />
-              </div>
-            </Link>
-          ))}
+            {console.log(this.state.data)}
+            {data.map(character => (
+              <Link className={styles.link} key={character.id} to={`/character/${character.id}`}>
+                  <h2>{character.name}</h2>
+                  <img src={`${character.thumbnail.path}/portrait_fantastic.${character.thumbnail.extension}`} alt={character.name} />
+              </Link>
+            ))}
+            <ul className={styles.pageNumbers}>
+              {renderPageNumbers}
+            </ul>
+            {console.log('currentPage '+currentPage)}
           </section>
           {this.state.loading && 'Loading...'}
           {!this.state.loading && !this.state.error && this.state.data.length === 0 && 'Empty'}
@@ -76,10 +107,6 @@ class CharactersPage extends Component {
             </div>
           )}
         </main>
-        <ul className={styles.paginationList}>
-          <li></li>
-        </ul>
-        {!this.state.loading && !this.state.error && <button className={styles.button} onClick={this.handleShowMore} type="button">Show more</button>}
       </MainTemplate>
     );
   }

@@ -28,3 +28,15 @@
   text-transform: uppercase;
   color: #fdd700;
 }
+
+.description {
+ text-align: justify;
+}
+
+.left {
+width: 40%;
+}
+
+.right {
+width: 50%;
+}
