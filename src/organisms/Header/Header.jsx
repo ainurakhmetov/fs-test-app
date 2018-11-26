@@ -15,7 +15,7 @@ const Header = () => (
           <Link className={styles.navigationItem} to="">News</Link>
         </li>
         <li>
-          <Link className={styles.navigationItem} to="/characters">Characters</Link>
+          <Link className={styles.navigationItem} to="/characters/?page=1">Characters</Link>
         </li>
         <li>
           <Link className={styles.navigationItem} to="/video">Video</Link>

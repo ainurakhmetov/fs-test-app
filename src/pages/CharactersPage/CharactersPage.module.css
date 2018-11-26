@@ -56,13 +56,44 @@
   color: #fdd700;
 }
 
-.pageNumbers {
+.paginate {
   list-style: none;
   display: flex;
 }
-.pageNumbers li {
+
+.linkPaginate {
   margin-right: 0.3em;
   color: blue;
   user-select: none;
   cursor: pointer;
+
+  border-radius: 3px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 0 0 1px;
+  margin: 1px 2px;
+  padding: 5px 10px;
+  display: inline-block;
+  border-top: 1px solid #fff;
+  text-decoration: none;
+  color: #717171;
+  font-size: smaller;
+  font-family: "Helvetica Neueu", Helvetica, Arial, sans-serif;
+  text-shadow: white 0 1px 0;
+  background-color: #f5f5f5;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#f9f9f9', EndColorStr='#eaeaea');
 }
+
+.linkPaginate:first-child, .linkPaginate.first {
+  margin-left: 0; }
+.linkPaginate:last-child, .linkPaginate.last {
+  margin-right: 0; }
+.linkPaginate:hover, .linkPaginate:focus {
+  border-color: #fff;
+  background-color: #fdfdfd;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#fefefe', EndColorStr='#fafafa'); }
+.linkPaginate.active {
+  box-shadow: rgba(0, 0, 0, 0.75) 0 0 0 0 inset;
+  border-color: #505050;
+  color: #f2f2f2;
+  text-shadow: black 0 1px 0;
+  background-color: #676767;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#5f5f5f', EndColorStr='#5c5c5c'); }
