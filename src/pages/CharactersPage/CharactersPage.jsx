@@ -10,9 +10,7 @@ class CharactersPage extends Component {
     loading: false,
     error: false,
     data: [],
-    //currentPage: 1,
     totalPage: 0,
-    currentOffset: 0,
   };
   //git merge master
   componentDidMount() {
@@ -21,14 +19,12 @@ class CharactersPage extends Component {
   }
   componentDidUpdate() {
     console.log('componentDidUpdate');
-    // if ((qs.parse(this.props.location.search,{ignoreQueryPrefix: true })) !== 1) {
-    //   this.fetch();
-    // }
+    //this.fetch();
   }
   fetch = () => {
-    //работать только с url
+    console.log('fetch');
     const currentPage = qs.parse(this.props.location.search,{ignoreQueryPrefix: true });
-    console.log('currentPage '+currentPage);
+    // console.log('currentPage '+currentPage);
     this.setState({
       data: [],
       loading: true,
@@ -59,7 +55,7 @@ class CharactersPage extends Component {
   };
 
   render() {
-    const { data, totalPage } = this.state;
+    const { data, totalPage, loading, error } = this.state;
     const pageNumbers = [];
     for (let i = 1; i <= Math.ceil(totalPage / 20); i++) {
       pageNumbers.push(i);
@@ -94,9 +90,9 @@ class CharactersPage extends Component {
               {renderPageNumbers}
             </ul>
           </section>
-          {this.state.loading && 'Loading...'}
-          {!this.state.loading && !this.state.error && this.state.data.length === 0 && 'Empty'}
-          {this.state.error && (
+          {loading && 'Loading...'}
+          {!loading && !error && data.length === 0 && 'Empty'}
+          {error && (
             <div>
               <p>Download error</p>
               <button type="button" onClick={this.fetch}>Try again</button>

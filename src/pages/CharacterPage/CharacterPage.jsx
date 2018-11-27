@@ -43,27 +43,28 @@ class CharacterPage extends Component {
   };
 
   render() {
-    const hero = this.state.data;
+    const { data, loading, error } = this.state;
     return (
       <MainTemplate>
         <main className={styles.main}>
           <h1 className={styles.title}>Hero</h1>
-          {this.state.loading && 'Loading...'}
-          {!this.state.loading && !this.state.error && this.state.data === null && 'Empty'}
-          {this.state.error && (
+          {loading && 'Loading...'}
+          {!loading && !error && data === null && 'Empty'}
+          {error && (
             <div>
               <p>Download error</p>
               <button type="button" onClick={this.fetch}>Try again</button>
             </div>
           )}
+
           <section className={styles.form}>
             <div className={styles.left}>
-              <h2 className={styles.heroTitle}>{hero.name}</h2>
-              {(hero.thumbnail) && <img src={`${hero.thumbnail.path}/portrait_incredible.${hero.thumbnail.extension}`} alt={hero.name} />}
+              <h2 className={styles.heroTitle}>{data.name}</h2>
+              {(data.thumbnail) && <img src={`${data.thumbnail.path}/portrait_incredible.${data.thumbnail.extension}`} alt={data.name} />}
             </div>
             <div className={styles.right}>
-              {hero.description === '' &&  <p>No description</p>}
-              {hero.description && <p className={styles.description}>{hero.description}</p>}
+              {data.description === '' &&  <p>No description</p>}
+              {data.description && <p className={styles.description}>{data.description}</p>}
             </div>
           </section>
         </main>
