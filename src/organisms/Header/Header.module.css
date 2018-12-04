@@ -41,7 +41,7 @@
 .navigationItem:hover,
 .navigationItem:active,
 .navigationItem:focus {
-    color:#fdd700;
+    color:#f11e22;
 }
 
 .navigationItemCurrent {
@@ -50,5 +50,5 @@
     text-transform: uppercase;
     text-decoration: none;
     font-weight: 700;
-    color: #fdd700;
+    color: #f11e22;
 }

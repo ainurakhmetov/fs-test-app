@@ -3,7 +3,7 @@
     width: 100vw;
     height: 100vh;
     background-color: white;
-    color: #fffaf0;
+    color: #f11e22;
     font-size: 72px;
 }
 
@@ -13,13 +13,13 @@
     text-align: center;
     text-transform: uppercase;
     font-weight: 500;
-    color: gold;
+    color: #f11e22;
 }
 
 .button {
     font-weight: 700;
-    color: #ffffff;
-    background-color: #7e7e7e;
+    color: #fff;
+    background-color: #f11e22;
     text-transform: uppercase;
     width: 200px;
     padding: 10px ;
@@ -30,5 +30,6 @@
 .button:hover,
 .button:focus,
 .button:active{
-    color: #fdd700;
+    color: #f2f2f2;
+    box-shadow:0 4px 5px rgba(0, 0, 0, .14);
 }

@@ -6,7 +6,7 @@ const About = () => (
   <section className={styles.form}>
     <h2>About us</h2>
     <p>
-      This site is about electronic music.
+      This site is about marvel studio.
     </p>
     <br />
     <h3>

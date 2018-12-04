@@ -59,7 +59,7 @@ class RegistrationPage extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     this.setState(this.initialState);
-    console.log('Отправка формы');
+    console.log('sending form');
   };
 
   render() {
@@ -74,13 +74,13 @@ class RegistrationPage extends Component {
                 value={this.state.email}
                 name="email"
                 id="email"
-                placeholder="Ведите E-mail"
+                placeholder="Enter E-mail"
                 error={this.validateEmail()}
                 onChange={this.handleChange}
               />
             </FormControl>
             <FormControl>
-              <Label htmlFor="password">Пароль</Label>
+              <Label htmlFor="password">Password</Label>
               <Input
                 type="password"
                 name="password"
@@ -91,7 +91,7 @@ class RegistrationPage extends Component {
               />
             </FormControl>
             <FormControl>
-              <Label htmlFor="passwordRepeat">Повтор пароля</Label>
+              <Label htmlFor="passwordRepeat">Repeat password</Label>
               <Input
                 type="password"
                 name="passwordRepeat"
@@ -101,7 +101,7 @@ class RegistrationPage extends Component {
                 onChange={this.handlePasswordChange}
               />
             </FormControl>
-            <Button styled={styles.button} type="submit">Зарегистрироваться</Button>
+            <Button styled={styles.button} type="submit">Registration</Button>
           </form>
         </main>
       </MainTemplate>

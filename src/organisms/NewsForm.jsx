@@ -6,9 +6,9 @@ class NewsForm extends Component {
 
     state = {
       news: [
-        {title: 'New album of Prodigy', text: 'some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text'},
-        {title: 'San Holo: Album 1', text: 'some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text'},
-        {title: 'Disiple: Panda Eyes', text: 'some text some text some text some text some text some text some text some textsome text some text some text some text some text some text some text some text some text some text some text some text some text '}
+        {title: 'Marvel #1', text: 'some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text'},
+        {title: 'Marvel #2', text: 'some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text'},
+        {title: 'Marvel #3', text: 'some text some text some text some text some text some text some text some textsome text some text some text some text some text some text some text some text some text some text some text some text some text '}
       ]
     };
 
