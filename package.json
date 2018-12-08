@@ -2,10 +2,11 @@
   "name": "testapp",
   "version": "0.1.0",
   "private": true,
-  "homepage" : "http://ainurakhmetov.github.io/fs_app",
+  "homepage": "http://ainurakhmetov.github.io/fs_app/",
   "dependencies": {
     "axios": "^0.18.0",
     "classnames": "^2.2.6",
+    "gh-pages": "^2.0.1",
     "qs": "^6.6.0",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
@@ -14,6 +15,8 @@
     "react-scripts": "2.0.5"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
