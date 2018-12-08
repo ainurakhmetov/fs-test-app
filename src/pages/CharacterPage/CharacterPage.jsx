@@ -12,8 +12,8 @@ class CharacterPage extends Component {
     loading: false,
     error: false,
     data: [],
-    comics: [],
     showComics: false,
+    showStory: false,
   };
 
   componentDidMount() {
@@ -36,7 +36,6 @@ class CharacterPage extends Component {
         this.setState({
           loading: false,
           data: response.data.data.results[0],
-          comics: response.data.data.results[0].comics.items,
         });
       })
       .catch(() => {
@@ -46,17 +45,9 @@ class CharacterPage extends Component {
         });
       });
   };
-  // handleShowMore = () => {
-  //   this.setState(prevState => ({
-  //     page: prevState.page + 1,
-  //   }), () => {
-  //     this.fetch();
-  //   });
-  // };
-
   render() {
     const {
-      data, loading, error, comics, showComics,
+      data, loading, error, showComics, showStory,
     } = this.state;
 
     const toggleComicsHandler = () => {
@@ -64,15 +55,25 @@ class CharacterPage extends Component {
         showComics: !showComics,
       });
     };
+    const toggleStoryHandler = () => {
+      this.setState({
+        showStory: !showStory,
+      });
+    };
 
-    let showList = null;
+    let showComicsList = null;
+    let showStoryList = null;
 
     if (showComics) {
-      showList = comics.map(comic => (
+      showComicsList = data.comics.items.map(comic => (
         <li key={Math.random() + Date.now()}>{comic.name}</li>
       ));
     }
-
+    if (showStory) {
+      showStoryList = data.series.items.map(story => (
+        <li key={Math.random() + Date.now()}>{story.name}</li>
+      ));
+    }
     return (
       <MainTemplate>
         <main className={styles.main}>
@@ -101,7 +102,14 @@ class CharacterPage extends Component {
                 comics list
               </button>
               <ul className={styles.comicsList}>
-                {showList !== null ? showList : (showComics && <p>no comics</p>) }
+                {showComicsList !== null ? showComicsList : (showComics && <p>no comics</p>) }
+              </ul>
+              <button className={styles.button} onClick={toggleStoryHandler}>
+                {showStory ? 'hide ' : 'show '}
+                story list
+              </button>
+              <ul className={styles.comicsList}>
+                {showStoryList !== null ? showStoryList : (showStory && <p>no story</p>) }
               </ul>
             </div>
           </section>
