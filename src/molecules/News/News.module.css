@@ -8,7 +8,7 @@
   border: 1px solid #ccc;
   box-shadow:0 4px 5px rgba(0, 0, 0, .14);
   height: 30em;
-  margin: 5px 0 0 0;
+  margin: 0 auto;
 
   display: flex;
   justify-content: space-between;
