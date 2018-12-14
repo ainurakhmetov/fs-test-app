@@ -1,42 +1,41 @@
 .main {
   background-color: #ffffff;
-  min-height: 60vh;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
-  font-size: 16px;
+  flex-direction: column;
+  font-size: 14px;
   color: #000000;
-  padding: 15px;
+  justify-content: space-between;
 }
 
 .form {
+  width: 70%;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   flex-wrap: wrap;
   height: min-content;
-  padding: 20px 20px;
   background-color: #ffffff;
-  min-width: 600px;
-  width: 70vw;
   border: 1px solid #ccc;
   box-shadow:0 4px 5px rgba(0, 0, 0, .14);
   margin: 5px 0 0 0;
+  padding-bottom: 2px;
 }
 
 .link {
   text-decoration: none;
+  align-items: center;
   color: #000;
-  width: 300px;
 }
 
 .link:hover {
   color: #f11e22;
 }
+
 .link img {
   -moz-transition: all 0.5s ease-out;
   -o-transition: all 0.5s ease-out;
   -webkit-transition: all 0.5s ease-out;
+  width: 50%;
 }
 
 .link img:hover{
@@ -121,3 +120,54 @@
   }
 }
 
+@media only screen and (max-width: 480px) {
+  .link {
+    display: flex;
+    flex-direction: column;
+  }
+  .name {
+    font-size: 12px;
+  }
+}
+
+@media only screen and (min-width: 480px) {
+  .link {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+  }
+  .name {
+    font-size: 12px;
+  }
+}
+
+@media only screen and (min-width : 768px) {
+  .name {
+    font-size: 14px;
+  }
+  .link {
+    width: 200px;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .name {
+    font-size: 14px;
+  }
+  .link {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+  }
+}
+
+@media only screen and (min-width: 1400px) {
+  .name {
+    font-size: 16px;
+  }
+  .link {
+    display: flex;
+    flex-direction: column;
+    width: 230px;
+  }
+}

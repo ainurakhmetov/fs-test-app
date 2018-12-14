@@ -11,7 +11,7 @@ const NotFoundPage = () => (
       <br />
       not found
     </h3>
-    <Link to="/">
+    <Link to="/" className={styles.link}>
       <Button styled={styles.button}>Take me back to homepage</Button>
     </Link>
   </main>

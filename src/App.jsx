@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import {BrowserRouter, Route, Switch} from 'react-router-dom';
-// import styles from './App.module.css';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import HomePage from './pages/HomePage/HomePage';
 import InfoPage from './pages/InfoPage/InfoPage';
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
@@ -9,7 +8,6 @@ import CharactersPage from './pages/CharactersPage/CharactersPage';
 import CharacterPage from './pages/CharacterPage/CharacterPage';
 
 class App extends Component {
-
   render() {
     return (
       <BrowserRouter basename="/fs_app">

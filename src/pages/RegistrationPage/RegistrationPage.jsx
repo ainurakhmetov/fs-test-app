@@ -28,11 +28,11 @@ class RegistrationPage extends Component {
   };
 
   validateEmail = () => {
-    const email = this.state.email;
+    const { email } = this.state;
 
     const re = /^.*@.*\..+$/;
 
-    console.log(re.test(email));
+    // console.log(re.test(email));
 
     if (email.length === 0) {
       return false;
@@ -42,7 +42,7 @@ class RegistrationPage extends Component {
   };
 
   validatePassword = () => {
-    const password = this.state.password;
+    const { password } = this.state;
 
 
     if (password.length === 0) {
@@ -59,10 +59,11 @@ class RegistrationPage extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     this.setState(this.initialState);
-    console.log('sending form');
+    // console.log('sending form');
   };
 
   render() {
+    const { email, password, passwordRepeat } = this.state;
     return (
       <MainTemplate>
         <main className={styles.main}>
@@ -71,7 +72,7 @@ class RegistrationPage extends Component {
               <Label htmlFor="email">E-mail</Label>
               <Input
                 type="email"
-                value={this.state.email}
+                value={email}
                 name="email"
                 id="email"
                 placeholder="Enter E-mail"
@@ -85,7 +86,7 @@ class RegistrationPage extends Component {
                 type="password"
                 name="password"
                 id="password"
-                value={this.state.password}
+                value={password}
                 error={this.validatePassword()}
                 onChange={this.handlePasswordChange}
               />
@@ -96,12 +97,12 @@ class RegistrationPage extends Component {
                 type="password"
                 name="passwordRepeat"
                 id="passwordRepeat"
-                value={this.state.passwordRepeat}
+                value={passwordRepeat}
                 error={this.validatePassword()}
                 onChange={this.handlePasswordChange}
               />
             </FormControl>
-            <Button styled={styles.button} type="submit">Registration</Button>
+            <div className={styles.buttonWrapper}><Button styled={styles.button} type="submit">Registration</Button></div>
           </form>
         </main>
       </MainTemplate>

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import PropTypes from 'prop-types';
 import MainTemplate from '../../templates/MainTemplate';
 import styles from './CharacterPage.module.css';
 import Button from '../../atoms/Button/Button';
@@ -7,7 +8,6 @@ import Loader from '../../atoms/Loading/Loader';
 
 
 class CharacterPage extends Component {
-
   state = {
     loading: false,
     error: false,
@@ -18,16 +18,17 @@ class CharacterPage extends Component {
 
   componentDidMount() {
     this.fetch();
-  };
+  }
 
   fetch = () => {
+    const { match } = this.props;
     this.setState({
       loading: true,
       error: false,
     });
 
     axios
-      .get(`${process.env.REACT_APP_API_URL}/v1/public/characters/${this.props.match.params.id}`, {
+      .get(`${process.env.REACT_APP_API_URL}/v1/public/characters/${match.params.id}`, {
         params: {
           apikey: process.env.REACT_APP_MARVEL_API_KEY,
         },
@@ -45,6 +46,7 @@ class CharacterPage extends Component {
         });
       });
   };
+
   render() {
     const {
       data, loading, error, showComics, showStory,
@@ -86,25 +88,24 @@ class CharacterPage extends Component {
               <Button onClick={this.fetch} styled={styles.button}>Try again</Button>
             </div>
           )}
-
           <section className={styles.form}>
             <div className={styles.left}>
               <h2 className={styles.heroTitle}>{data.name}</h2>
               {data.thumbnail && <img src={`${data.thumbnail.path}/portrait_incredible.${data.thumbnail.extension}`} alt={data.name} />}
             </div>
             <div className={styles.right}>
-              {data.description === '' &&  <p>No description</p>}
+              {data.description === '' && <p>No description</p>}
               {data.description && <p className={styles.description}>{data.description}</p>}
             </div>
-            <div>
-              <button className={styles.button} onClick={toggleComicsHandler}>
+            <div className={styles.lists}>
+              <button type="button" className={styles.button} onClick={toggleComicsHandler}>
                 {showComics ? 'hide ' : 'show '}
                 comics list
               </button>
               <ul className={styles.comicsList}>
                 {showComicsList !== null ? showComicsList : (showComics && <p>no comics</p>) }
               </ul>
-              <button className={styles.button} onClick={toggleStoryHandler}>
+              <button type="button" className={styles.button} onClick={toggleStoryHandler}>
                 {showStory ? 'hide ' : 'show '}
                 story list
               </button>
@@ -118,5 +119,12 @@ class CharacterPage extends Component {
     );
   }
 }
+
+CharacterPage.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.object.isRequired,
+    id: PropTypes.number,
+  }).isRequired,
+};
 
 export default CharacterPage;

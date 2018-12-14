@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import qs from 'qs';
-import {Link, Redirect} from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { Link, Redirect } from 'react-router-dom';
 import MainTemplate from '../../templates/MainTemplate';
 import styles from './CharactersPage.module.css';
 import Button from '../../atoms/Button/Button';
@@ -16,23 +17,25 @@ class CharactersPage extends Component {
     totalPage: 0,
     redirect: false,
   };
+
   componentDidMount() {
-    const checkPage = qs.parse((this.props.location.search), {ignoreQueryPrefix: true});
-    console.log(checkPage.page);
-    if (checkPage.page <= 0 || checkPage.page > 75 || !isFinite(checkPage.page) || isNaN(parseFloat(checkPage.page))) {
+    const { location } = this.props;
+    const checkPage = qs.parse((location.search), { ignoreQueryPrefix: true });
+    if (checkPage.page <= 0 || checkPage.page > 75
+      || Number.isNaN(parseFloat(checkPage.page))) {
       return this.setState({
         redirect: true,
       });
     }
-    else {
-      this.fetch();
-    }
+    return this.fetch();
   }
+
   componentDidUpdate(pervProps) {
-    //const testPage = qs.stringify((qs.parse((this.props.location.search), { ignoreQueryPrefix: true })), { encode: false });
-    if (pervProps.location !== this.props.location) {
+    const { location } = this.props;
+    if (pervProps.location !== location) {
       return this.fetch();
     }
+    return false;
   }
 
   fetch = () => {
@@ -41,7 +44,8 @@ class CharactersPage extends Component {
       loading: true,
       error: false,
     });
-    const currentPage = qs.parse((this.props.location.search), { ignoreQueryPrefix: true });
+    const { location } = this.props;
+    const currentPage = qs.parse((location.search), { ignoreQueryPrefix: true });
     axios
       .get(`${process.env.REACT_APP_API_URL}/v1/public/characters`, {
         params: {
@@ -80,7 +84,7 @@ class CharactersPage extends Component {
           <section className={styles.form}>
             {data.map(character => (
               <Link className={styles.link} key={character.id} to={`/character/${character.id}`}>
-                <h2>{character.name}</h2>
+                <p className={styles.name}>{character.name}</p>
                 <img src={`${character.thumbnail.path}/portrait_fantastic.${character.thumbnail.extension}`} alt={character.name} />
               </Link>
             ))}
@@ -90,7 +94,7 @@ class CharactersPage extends Component {
           {error && (
             <div>
               <p>Download error</p>
-              <Button onClick={this.fetch} styled={styles.button}>Try again</Button>
+              <Button onClick={this.fetch} stylyed={styles.button}>Try again</Button>
             </div>
           )}
           <Pagination totalPage={totalPage} />
@@ -99,4 +103,8 @@ class CharactersPage extends Component {
     );
   }
 }
+
+CharactersPage.propTypes = {
+  location: PropTypes.object.isRequired,
+};
 export default CharactersPage;

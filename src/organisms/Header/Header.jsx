@@ -4,10 +4,9 @@ import styles from './Header.module.css';
 import logo from './logo.png';
 
 const Header = () => (
-
   <header className={styles.header}>
     <div className={styles.mainNavigation}>
-      <Link to="/">
+      <Link to="/" className={styles.linkLogo}>
         <img className={styles.logo} src={logo} alt="logo" />
       </Link>
       <ul className={styles.navigationList}>
